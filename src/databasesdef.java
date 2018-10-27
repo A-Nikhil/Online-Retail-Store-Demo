@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class databasesdef {
 
@@ -12,20 +9,8 @@ public class databasesdef {
         initial = "jdbc:sqlite:D:/Coding Languages/sqlite/db/";
     }
 
-    public void createDatabase(String filename) {
-        String url = initial + filename;
-        try (Connection conn = DriverManager.getConnection(url)) {
-            if(conn!=null) {
-                DatabaseMetaData meta = conn.getMetaData();
-                System.out.println("db created");
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
     public void createTables(String filename) {
-        String url = initial + filename;
+        String url = initial + filename + ".db";
         String command[] = new String[12];
         
         command[0] = "CREATE TABLE USERS (" +
@@ -119,14 +104,19 @@ public class databasesdef {
                 "  FOREIGN KEY (ITEMID) REFERENCES ITEMS(ITEMID)" +
                 ");";
 
-        //try(Connection conn = ) {
-
-        //}
+        try(Connection conn = DriverManager.getConnection(url);
+            Statement query = conn.createStatement()) {
+            for(int i=0; i<12; i++) {
+                query.execute(command[i]);
+                System.out.println("DB " + i);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void main(String []args) {
         databasesdef obj = new databasesdef();
-        obj.createDatabase("XenonStore");
-        //obj.createTables("XenonStore");
+        obj.createTables("XenonStore");
     }
 }
