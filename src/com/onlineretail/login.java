@@ -6,15 +6,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 
 public class login extends HttpServlet {
+	String userid, password;
     public void service(HttpServletRequest req, HttpServletResponse res) {
-        int userid = Integer.parseInt(req.getParameter("username"));
-        int password = Integer.parseInt(req.getParameter("password"));
+        userid = req.getParameter("username");
+        password = req.getParameter("password");
         System.out.println(userid + " "+ password);
     }
-    /*
     public static void main(String []args) {
-        String userid = "";
-        String password = "";
+    	login obj = new login();
         Connection c = null;
         Statement stmt = null;
         try {
@@ -22,9 +21,13 @@ public class login extends HttpServlet {
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT USERID, PASSWORD FROM USERS;");
             while (rs.next()) {
-                if(userid.equals(rs.getString("USERID")) && password.equals(rs.getString("PASSWORD"))) {
+            	String user = rs.getString(1);
+                String pass = rs.getString(2);
+            	System.out.println(user + " " + pass);
+            	if(obj.userid.equals(rs.getString("USERID")) && obj.password.equals(rs.getString("PASSWORD"))) {
                     System.out.println("USER LOGIN SUCCESSFUL");
-                    // Proceed further
+                 // Proceed further
+                    break;
                 } else {
                     System.out.println("USER LOGIN UNSUCCESSFUL");
                     // Same goes again
@@ -33,5 +36,5 @@ public class login extends HttpServlet {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-    }*/
+    }
 }
