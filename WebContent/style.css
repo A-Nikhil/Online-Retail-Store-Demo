@@ -1,0 +1,119 @@
+body{
+  background-color: MidnightBlue !important;
+    max-width: 100% !important;
+    height: 100%;
+    background-size: cover ;
+    background-attachment: fixed;
+}
+.i1{
+
+    margin-top: 20px;
+    width:450px;
+
+}
+
+.auth{
+  position: fixed !important  ;
+  text-align: center !important;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  /* margin-top: 20vh; */
+}
+.c1{
+    padding:10px;
+    border-radius: 20px;
+    margin-top: 3vh;
+    /*background-color: white;*/
+    font-size: 40px;
+    color: white;
+    max-width: 40% !important;
+    font-family: 'Raleway', sans-serif;
+}
+.ip1,.ip2{
+    padding: 10px;
+    width:400px;
+}
+#txt1{
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 35px;
+}
+#txt2{
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+#b1{
+    background-color: #d90360;
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 20px;
+    width: 25% !important;
+}
+#b1:hover{
+    cursor: pointer;
+    color: black;
+}
+input[type=text], input[type=password]{
+    padding: 10px;
+    background: white;
+    border-radius: 20px;
+    opacity:0.8;
+    margin-left:20%;
+    border-left: none;
+    border-right: none;
+    border-top:none;
+    border-width: 2px;
+    border-color: white;
+    text-align: center;
+    max-width:60%;
+}
+
+/*Media Queries*/
+@media only screen
+and (max-device-width : 400px)
+{
+   .c1{
+       max-width: 80% !important;
+       font-size: 40px !important;
+       margin-top: 200px !important;
+   }
+    #txt1,#txt2{
+        font-size: 40px;
+        padding:20px;
+    }
+    .ip1,.ip2{
+        font-size: 60px !important;
+        padding:20px !important;
+    }
+    .i1{
+        margin-top: 190px !important;
+    }
+    #i1,#i2, #b1{
+        font-size: 40px !important;
+        border-radius: 50px;
+    }
+    #b1{
+        margin-top: 60px;
+    }
+    #txt2{
+        margin-top: 50px !important;
+    }
+}
+
+@media only screen
+and (max-device-width : 900px)
+{
+    .c1{
+        max-width: 90% !important;
+    }
+    #txt1,#txt2{
+        font-size: 30px;
+        padding:20px;
+    }
+    .ip1,.ip2{
+        padding:20px
+    }
+}

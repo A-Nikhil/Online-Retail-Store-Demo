@@ -1,0 +1,48 @@
+body{
+  background-color: MidnightBlue !important;
+    max-width: 100% !important;
+    height: 100%;
+    background-size: cover ;
+    background-attachment: fixed;
+}
+
+.navbar-brand, .t1{
+    /* position: fixed !important  ; */
+    text-align: center !important;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+.username{
+  font-family: 'Raleway', sans-serif !important;
+  font-size:1.5vh !important;
+}
+
+.t1{
+  margin-top: 2vh !important;
+  margin-bottom: 3vh !important;
+}
+.dropList{
+  font-family: 'Raleway', sans-serif !important;
+  font-size:1.5vh !important;
+}
+
+.b1, .head1, .cont1{
+  margin-top:4vh !important;
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.head1{
+  color:white;
+  font-size: 2.8vh;
+}
+.cont1{
+  color:white;
+  font-size: 2vh;
+}
+.dropList{
+  color:black !important;
+  font-size: 1.8vh !important;
+}
+.form1{
+  margin-top: 5vh !important;
+}
