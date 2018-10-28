@@ -7,15 +7,18 @@ import java.sql.*;
 
 public class login extends HttpServlet {
 	String userid, password;
-    public void service(HttpServletRequest req, HttpServletResponse res) {
-        userid = req.getParameter("username");
-        password = req.getParameter("password");
+    
+	public void doPost() {
+        userid = "thestarboy"; // req.getParameter("username");
+        password = "ADMIN";    // req.getParameter("password");
         System.out.println(userid + " "+ password);
     }
     public static void main(String []args) {
     	login obj = new login();
         Connection c = null;
         Statement stmt = null;
+        // HttpServletRequest req; HttpServletResponse res;
+        obj.doPost();
         try {
             c = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db");
             stmt = c.createStatement();
