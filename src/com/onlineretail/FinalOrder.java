@@ -1,6 +1,6 @@
 package com.onlineretail;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,15 +8,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Random;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-public class FinalOrder {
-    public void order() {
+@SuppressWarnings("serial")
+public class FinalOrder extends HttpServlet{
+    public void doPost(HttpServletRequest req, HttpServletResponse res) {
         int total = 0;
 		Connection c; Statement stmt;
 		try {
-			String userid = "thestarboy";
 			// Bringing all operations from the cart
 			c = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db");
             stmt = c.createStatement();
@@ -25,21 +27,15 @@ public class FinalOrder {
             while(rs.next()) {
             	total += rs.getInt(3);
             }
-            
-            // Getting a unique order id
-            Random rand = new Random(); int orderid = rand.nextInt(50) + 1;
-            ResultSet ord = stmt.executeQuery("SELECT ORDERID FROM ORDERS");
-            while(orderid == ord.getInt(1)) {
-                orderid = rand.nextInt(50) + 1;
-            }
+            ResultSet rs2 = stmt.executeQuery("SELECT USERID FROM CURRENT");
+            String userid = rs2.getString(1);
+            ResultSet rs3 = stmt.executeQuery("SELECT MAX(ORDERID) FROM ORDERS;");
+            int orderid = (rs3.getInt(1) + 1);
 
             // Confirming Payment
             String paymentMode = "Cash on Delivery";
-            int paymentid = rand.nextInt(50) + 1;
-            ord = stmt.executeQuery("SELECT PAYMENTID FROM PAYMENTS");
-            while(paymentid == ord.getInt(1)) { // Unique payment id
-            	paymentid = rand.nextInt(50) + 1;
-            }
+            rs3 = stmt.executeQuery("SELECT MAX(PAYMENTID) FROM PAYMENT;");
+            int paymentid = (rs3.getInt(1) + 1);
 
             PreparedStatement paymentForm = c.prepareStatement("INSERT INTO PAYMENTS (PAYMENTID, TOTALCOST, PAYMENTMODE) "
             		+ "VALUES(?, ?, ?);");
@@ -73,9 +69,4 @@ public class FinalOrder {
 			System.out.println(e.getMessage());
 		}
 	}
-
-	public static void main(String []args) {
-	    FinalOrder obj = new FinalOrder();
-	    obj.order();
-    }
 }

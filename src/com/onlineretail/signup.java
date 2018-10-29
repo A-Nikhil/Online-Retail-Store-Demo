@@ -7,27 +7,29 @@ import java.sql.SQLException;
 import javax.servlet.http.*;
 
 public class signup extends HttpServlet {
-	String userid, password, fname, mname, lname, sex, dob;
-    long phno;
-    
     public void doPost(HttpServletRequest req, HttpServletResponse res) {
-    	// Operation
-    }
-    
-    public static void main(String []args) {
-    	signup obj = new signup();
         PreparedStatement pstmt = null;
+        String userid = req.getParameter("userid");
+        String password = req.getParameter("password");
+        String fname = req.getParameter("fname");
+        String mname= req.getParameter("mname");
+        if(mname == null)
+        	mname = "";
+        String lname = req.getParameter("lname");
+        String dob = req.getParameter("dob");
+        String sex = req.getParameter("sex");
+        Long phno = Long.parseLong(req.getParameter("phno"));
         try {
             pstmt = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db")
                     .prepareStatement("INSERT INTO USERS(USERID, PASSWORD, FNAME, MNAME, LNAME, PHNO, SEX, DOB) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
-            pstmt.setString(1, obj.userid);
-            pstmt.setString(2, obj.password);
-            pstmt.setString(3, obj.fname);
-            pstmt.setString(4, obj.mname);
-            pstmt.setString(5, obj.lname);
-            pstmt.setLong(6, obj.phno);
-            pstmt.setString(7, obj.sex);
-            pstmt.setString(8, obj.dob);
+            pstmt.setString(1, userid);
+            pstmt.setString(2, password);
+            pstmt.setString(3, fname);
+            pstmt.setString(4, mname);
+            pstmt.setString(5, lname);
+            pstmt.setLong(6, phno);
+            pstmt.setString(7, sex);
+            pstmt.setString(8, dob);
 
             //Execute it
             pstmt.executeUpdate();
