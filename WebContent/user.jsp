@@ -72,8 +72,7 @@
 
 
   <div class="container-fluid main" align="middle" >
-
-      <div class="row">
+      <div class="row" >
         <div class="col-sm-7" align="center">
             <div class="container-fluid t1">
               <h2>PRODUCTS</h2>
@@ -87,10 +86,10 @@
                       <img src="#" class="img-responsive">
                     </div>
                     <div class="col-sm-7">
-                      Product Title: ${ProductList[0][0]}<br>
-                      Category: ${ProductList[0][1]}<br>
-                      Amount: ${ProductList[0][2]}<br>
-                      Supplied By: ${ProductList[0][3]}<br>
+                      <strong>${ProductList[0][0]}<br>
+                        comes under: ${ProductList[0][1]}<br>
+                        Amount: ${ProductList[0][2]}<br>
+                        By: ${ProductList[0][3]}<br></strong>
                     </div>
                   </div>
                 </a>
@@ -100,10 +99,10 @@
                       <img src="#" class="img-responsive">
                     </div>
                     <div class="col-sm-7">
-                      Product Title: ${ProductList[1][0]}<br>
-                      Category: ${ProductList[1][1]}<br>
+                      <strong>${ProductList[1][0]}<br>
+                      comes under: ${ProductList[1][1]}<br>
                       Amount: ${ProductList[1][2]}<br>
-                      Supplied By: ${ProductList[1][3]}<br>
+                      By: ${ProductList[1][3]}<br></strong>
                     </div>
                   </div>
                 </a>
@@ -113,13 +112,38 @@
                       <img src="#" class="img-responsive">
                     </div>
                     <div class="col-sm-7">
-                      Product Title:<br>
-                      Product Description:<br>
-                      Price Offered:<br>
-                      Contact ID:<br>
+                      <strong>${ProductList[2][0]}<br>
+                        comes under: ${ProductList[2][1]}<br>
+                        Amount: ${ProductList[2][2]}<br>
+                        By: ${ProductList[2][3]}<br></strong>
                     </div>
                   </div>
-                </a>
+                  <a href="#" class="list-group-item" align="left">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <img src="#" class="img-responsive">
+                    </div>
+                    <div class="col-sm-7">
+                      <strong>${ProductList[3][0]}<br>
+                        comes under: ${ProductList[3][1]}<br>
+                        Amount: ${ProductList[3][2]}<br>
+                        By: ${ProductList[3][3]}<br></strong>
+                    </div>
+                  </div>
+                  </a>
+                  <a href="#" class="list-group-item" align="left">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <img src="#" class="img-responsive">
+                    </div>
+                    <div class="col-sm-7">
+                      <strong>${ProductList[4][0]}<br>
+                        comes under: ${ProductList[4][1]}<br>
+                        Amount: ${ProductList[4][2]}<br>
+                        By: ${ProductList[4][3]}<br></strong>
+                    </div>
+                  </div>
+                  </a>
               </div>
 
               <button class="btn b1" type="button" id="b1" ><strong>SHOP</strong></button><br>
@@ -127,51 +151,6 @@
             </div>
 
         </div>
-        <div class="col-sm-4" align="center">
-          <div class="container orderhistory" align="center">
-            <div class="container-fluid head1">
-              ORDER HISTORY
-              <hr>
-            </div>
-            <div class="container-fluid cont1" align="left">
-              Total Transactions:<br>
-              Last Transaction: <br>
-              Items Sold:<br>
-              Amount Transacted:<br>
-
-            </div>
-          </div>
-          <button class="btn b1" type="button" id="b1" onclick="addItem()"><strong>SELL ITEM</strong></button><br>
-          <div class="container-fluid form1">
-
-          <form>
-            <div class="form-group">
-              <input type="textl" class="form-control" id="totaltransac" aria-describedby="emailHelp" placeholder="Total Transactions">
-            </div>
-            <div class="form-group">
-              <input type="textl" class="form-control" id="totaltransac" aria-describedby="emailHelp" placeholder="Last Transactions">
-            </div>
-            <div class="form-group">
-              <input type="textl" class="form-control" id="totaltransac" aria-describedby="emailHelp" placeholder="Items Sold">
-            </div>
-            <div class="form-group">
-              <input type="textl" class="form-control" id="totaltransac" aria-describedby="emailHelp" placeholder="Amount Transacted">
-            </div>
-            <button class="btn b1" type="button" id="b1" onclick="addToList()"><strong>SUBMIT</strong></button><br>
-          </form>
-        </div>
-
-
-        </div>
-
-     </div>
-
-
-
-
-  </div>
-
-
 <script>
 $(".form1").hide();
 

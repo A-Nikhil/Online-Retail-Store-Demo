@@ -7,7 +7,7 @@ body{
 }
 
 .navbar-brand, .t1{
-    /* position: fixed !important  ; */
+    position: fixed !important  ;
     text-align: center !important;
     color: white;
     font-family: 'Titillium Web', sans-serif;
