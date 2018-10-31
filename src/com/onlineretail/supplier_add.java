@@ -17,23 +17,26 @@ public class supplier_add extends HttpServlet {
 		PreparedStatement pstmt = null;
 		Statement stmt = null;
         String itemname = req.getParameter("userid");
-        String useInstruction = req.getParameter("password");
+        String description = req.getParameter("password");
         String category = req.getParameter("fname");
         int price = Integer.parseInt(req.getParameter("phno"));
         try {
         	Connection c = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db");
             stmt = c.createStatement();
+            ResultSet ITEM = stmt.executeQuery("SELCT MAX(ITEMID) FROM ITEMS"); 
+            int itemid = ITEM.getInt(1) + 1;
+            stmt.close();
+            stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT SUPPID FROM CURRENTSUP"); 
             int suppid = rs.getInt(1);
             stmt.close();
-            c.close();
-            c = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db");
-            pstmt = c.prepareStatement("INSERT INTO ITEMS (ITEMID, ITEMNAME, USEINSTRUCTION, CATEGORY, PRICE, SUPPLIERID) VALUES (?, ?, ?, ?, ?, ?);");
-            pstmt.setString(1, itemname);
-            pstmt.setString(2, useInstruction);
-            pstmt.setString(3, category);
-            pstmt.setInt(4, price);
-            pstmt.setInt(5, suppid);
+            pstmt = c.prepareStatement("INSERT INTO ITEMS (ITEMID, ITEMNAME, DESCRIPTION, CATEGORY, PRICE, SUPPLIERID) VALUES (?, ?, ?, ?, ?, ?);");
+            pstmt.setInt(1, itemid);
+            pstmt.setString(2, itemname);
+            pstmt.setString(3, description);
+            pstmt.setString(4, category);
+            pstmt.setInt(5, price);
+            pstmt.setInt(6, suppid);
 
             //Execute it
             pstmt.executeUpdate();

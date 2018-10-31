@@ -18,12 +18,12 @@ public class signup extends HttpServlet {
         if(mname == null)
         	mname = "";
         String lname = req.getParameter("lname");
-        String dob = req.getParameter("dob");
         String sex = req.getParameter("sex");
         Long phno = Long.parseLong(req.getParameter("phno"));
+        String location = req.getParameter("location");
         try {
         	Connection c = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db");
-            pstmt = c.prepareStatement("INSERT INTO USERS(USERID, PASSWORD, FNAME, MNAME, LNAME, PHNO, SEX, DOB) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+            pstmt = c.prepareStatement("INSERT INTO USERS(USERID, PASSWORD, FNAME, MNAME, LNAME, PHNO, SEX, ADDRESS) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
             pstmt.setString(1, userid);
             pstmt.setString(2, password);
             pstmt.setString(3, fname);
@@ -31,7 +31,7 @@ public class signup extends HttpServlet {
             pstmt.setString(5, lname);
             pstmt.setLong(6, phno);
             pstmt.setString(7, sex);
-            pstmt.setString(8, dob);
+            pstmt.setString(8, location);
 
             //Execute it
             pstmt.executeUpdate();

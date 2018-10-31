@@ -1,0 +1,48 @@
+body {
+   background-image: url("bg3.jpg");
+   background-repeat: no-repeat;
+   background-position: right top;
+   background-attachment: fixed;
+
+   background-repeat:no-repeat;
+
+   background-size:cover;
+}
+#id01{
+  margin-top: 10vh !important;
+}
+#b1{
+  border-radius: 30px;
+  padding: 1vh !important;
+  width: 25vh;
+  color:white;
+  font-family: 'Raleway', sans-serif !important;
+  font-size:2.0vh !important;
+  background-color: rgba(0,0,0,0.8);
+  /* box-shadow: 2px 2px 2px #FFFFFF; */
+}
+
+#b1:hover{
+  background-color: rgba(0,0,0,0.9);
+}
+
+.navbar-brand, .t1{
+    /* position: fixed !important  ; */
+    text-align: center !important;
+    color: black;
+    font-family: 'Raleway', sans-serif !important;
+}
+.username{
+  font-family: 'Raleway', sans-serif !important;
+  font-size:1.5vh !important;
+}
+
+.box1{
+  font-family: 'Raleway', sans-serif !important;
+  font-size:2.5vh !important;
+  background-color: rgba(255,255,255,0.7) !important;
+  width: 70vh !important;
+  border-radius: 50px;
+  margin-top: 10vh;
+  height: 70vh !important;
+}

@@ -17,32 +17,13 @@
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">WELCOME
-    <div class="username">BITTU</div>
-  </a>
+  <a class="navbar-brand" href="#">WELCOME<br> ${userACName}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <!-- <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Linkish</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-
-        </div>
-      </li> -->
-
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
@@ -59,133 +40,69 @@
 
 
   <div class="container-fluid main" align="middle" >
-
-
+  <form action="beforefinalorder" method="post">
         <div class="container" align="center">
             <div class="container-fluid t1">
               <h2><strong>ITEMS IN YOUR CART</strong><hr></h2>
             </div>
-            <div class="container-fluid dropList">
-
+            <div class="container dropList">
               <div class="list-group">
                 <div class="list-group-item" align="left">
                   <div class="row">
-
                     <div class="col-sm-7">
-                      Product Title: ${CartList[0] }<br>
-                      Product Description:<br>
-                      Price Offered:<br>
-                      Contact ID:<br>
-                    </div>
-                    <div class="col-sm-5" align="right">
-                      <input type="checkbox" aria-label="Checkbox for following text input">
+                      Product Title: <strong>${CartList[0][1]}</strong><br>
+                      Price : <strong>${CartList[0][2]}</strong><br>
                     </div>
                   </div>
                 </div>
+                </div>
+                <div class="container dropList">
                 <div class="list-group-item" align="left">
                   <div class="row">
-
                     <div class="col-sm-7">
-                      Product Title:<br>
-                      Product Description:<br>
-                      Price Offered:<br>
-                      Contact ID:<br>
-                    </div>
-                    <div class="col-sm-5" align="right">
-                      <input type="checkbox" aria-label="Checkbox for following text input">
+                      Product Title: <strong>${CartList[1][1]}</strong><br>
+                      Price : <strong>${CartList[1][2]}</strong><br>
                     </div>
                   </div>
                 </div>
+                </div>
+                </div>
+                <div class="container-fluid dropList">
                 <div class="list-group-item" align="left">
                   <div class="row">
-
                     <div class="col-sm-7">
-                      Product Title:<br>
-                      Product Description:<br>
-                      Price Offered:<br>
-                      Contact ID:<br>
-                    </div>
-                    <div class="col-sm-5" align="right">
-                      <input type="checkbox" aria-label="Checkbox for following text input">
+                      Product Title: <strong>${CartList[2][1]}</strong><br>
+                      Price : <strong>${CartList[2][2]}</strong><br>
                     </div>
                   </div>
                 </div>
-
-
-              </div>
+                </div>
+                </div>
               <div id="payment">
-              <form action="beforefinalorder" method="post">
-              <div class="pay" align="left"><b>Select Payment Mode:</b><br>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="rad1" id="rad1" value="CREDIT CARD">
+              
+              <div class="pay" align="middle"><b><strong>Select Payment Mode:</strong></b><br>
+                <div class="form-check rad1">
+                  <input class="form-check-input" type="radio" name="PaymentMode" id="rad1" value="CREDIT CARD">
                   <label class="form-check-label" for="rad1">
-                    <b>CREDIT CARD</b>
+                    <b> <strong>CREDIT CARD</strong></b>
                   </label>
                 </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="rad2" id="rad2" value="DEBIT CARD">
+                <div class="form-check rad2">
+                  <input class="form-check-input" type="radio" name="PaymentMode" id="rad2" value="DEBIT CARD">
                   <label class="form-check-label" for="rad2">
-                  <b>  DEBIT CARD</b>
+                  <b> <strong>DEBIT CARD</strong> </b>
                   </label>
                 </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="rad3" id="rad3" value="CASH ON DELIVERY">
+                <div class="form-check rad3">
+                  <input class="form-check-input" type="radio" name="PaymentMode" id="rad3" value="CASH ON DELIVERY">
                   <label class="form-check-label" for="rad3">
-                  <b>  CASH ON DELIVERY</b>
+                  <b>  <strong>CASH ON DELIVERY</strong></b>
                   </label>
                 </div>
               </div>
-            </div>
-               </div>
-              <button class="btn b1" type="button" id="b1" ><strong>PROCEED TO PAYMENT</strong></button><br>
-
-		</form>
+              <button class="btn b1" type="submit" id="b1" onclick="nav()" ><strong>PROCEED TO PAYMENT</strong></button><br>
         </div>
-        <!-- <div class="col-sm-4" align="center">
-          <div class="container orderhistory" align="center">
-            <div class="container-fluid head1">
-              ORDER HISTORY
-              <hr>
-            </div>
-            <div class="container-fluid cont1" align="left">
-              Total Transactions:<br>
-              Last Transaction: <br>
-              Items Sold:<br>
-              Amount Transacted:<br>
-
-            </div>
-            <div class="col-sm-1">
-              <input type="checkbox" aria-label="Checkbox for following text input">
-            </div>
-          </div>
-          <button class="btn b1" type="button" id="b1" onclick="addItem()"><strong>SELL ITEM</strong></button><br>
-          <div class="container-fluid form1">
-
-          <form>
-            <div class="form-group">
-              <input type="textl" class="form-control" id="totaltransac" aria-describedby="emailHelp" placeholder="Total Transactions">
-            </div>
-            <div class="form-group">
-              <input type="textl" class="form-control" id="totaltransac" aria-describedby="emailHelp" placeholder="Last Transactions">
-            </div>
-            <div class="form-group">
-              <input type="textl" class="form-control" id="totaltransac" aria-describedby="emailHelp" placeholder="Items Sold">
-            </div>
-            <div class="form-group">
-              <input type="textl" class="form-control" id="totaltransac" aria-describedby="emailHelp" placeholder="Amount Transacted">
-            </div>
-            <button class="btn b1" type="button" id="b1" onclick="addToList()"><strong>SUBMIT</strong></button><br>
-          </form>
-        </div> -->
-
-
-        </div>
-
-     </div>
-
-
-
-
+</form>
   </div>
 <br><br><br>
 
@@ -200,7 +117,7 @@ $("#r1").click()(function(){
 $(".form1").hide();
 
 function nav(){
-  window.location.href="user.html";
+  window.location.href="final_order.jsp";
 }
 function addItem(){
   $(".form1").show("slow");

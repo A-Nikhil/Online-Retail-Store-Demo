@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 public class login extends HttpServlet {
-	String userid, password;
+	String userid, password, username;
 	public void doPost(HttpServletRequest req, HttpServletResponse res) {
 		userid = req.getParameter("username");
         password = req.getParameter("password");
@@ -51,13 +51,19 @@ public class login extends HttpServlet {
 	    	    System.out.println("TABLE CREATED");
 	    	    
 	    	    stmt = c.createStatement();
-	    	    stmt.execute("INSERT INTO CURRENT (USERID) VALUES (\"" + userid + "\");");
+	    	    ResultSet name = stmt.executeQuery("SELECT FNAME FROM USERS WHERE USERID = (\"" + userid + "\");");
+	    	    username = name.getString(1);
+	    	    stmt.close();
+	    	    System.out.println("VALUE ENTERED");
+	    	    
+	    	    stmt = c.createStatement();
+	    	    stmt.execute("INSERT INTO CURRENT (USERID) VALUES (\"" + username + "\");");
 	    	    stmt.close();
 	    	    System.out.println("VALUE ENTERED");
 	    	   
 	    	    stmt = c.createStatement();
 	    	    HttpSession session = req.getSession();
-	    	    session.setAttribute("userACName", userid);
+	    	    session.setAttribute("userACName", username);
 	    	    
 	    	    ResultSet rs1  = stmt.executeQuery("SELECT ITEMS.ITEMNAME, ITEMS.CATEGORY, ITEMS.PRICE, SUPPLIER.NAME, ITEMS.DESCRIPTION, ITEMS.ITEMID FROM ITEMS INNER JOIN SUPPLIER ON ITEMS.SUPPLIERID = SUPPLIER.SUPPLIERID;");
 			

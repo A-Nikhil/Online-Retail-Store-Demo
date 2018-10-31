@@ -208,9 +208,9 @@
               </div>
 
               <button class="btn b1" type="submit" id="b1" ><strong>SHOP</strong></button><br>
+          </div>
+          </div>
           </form>
-
-
         </div>
         <!-- <div class="col-sm-4" align="center">
           <div class="container orderhistory" align="center">

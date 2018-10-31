@@ -1,27 +1,46 @@
-body{
-  background-color: MidnightBlue !important;
-    max-width: 100% !important;
-    height: 100%;
-    background-size: cover ;
-    background-attachment: fixed;
-}
+body {
+   background-image: url("bg3.jpg");
+   background-repeat: no-repeat;
+   background-position: right top;
+   background-attachment: fixed;
 
+   background-repeat:no-repeat;
+
+   background-size:cover;
+}
 .navbar-brand, .t1{
-    position: fixed !important  ;
+    /* position: fixed !important  ; */
     text-align: center !important;
-    color: white;
-    font-family: 'Titillium Web', sans-serif;
+    color: black;
+  font-family: 'Raleway', sans-serif !important;
 }
 .username{
   font-family: 'Raleway', sans-serif !important;
   font-size:1.5vh !important;
 }
+input[type=checkbox] {
+  margin-top: 5px !important;
+  margin-right: 20px !important;
+  transform: rotate(20deg);
+  transform: scale(2.2);
+}
 
 .t1{
+  font-family: 'Raleway', sans-serif !important;
+  font-size:1.5vh !important;
+  color: white;
+  text-shadow: 2px 2px 2px #000000;
   margin-top: 2vh !important;
   margin-bottom: 3vh !important;
 }
+.list-group-item{
+  background-color: rgba(255,255,255,0.8)!important;
+  border-radius: 20px !important;
+  margin-bottom: 10px !important;
+  border-width: 2px !important;
+}
 .dropList{
+  /* background-color: rgba(0,0,0,0.8)!important; */
   font-family: 'Raleway', sans-serif !important;
   font-size:1.5vh !important;
 }
