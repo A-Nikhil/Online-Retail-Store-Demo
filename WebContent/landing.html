@@ -1,0 +1,65 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styleLanding.css">
+    <title>Online Portal</title>
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:900" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Syncopate:700" rel="stylesheet">
+    <script
+  			  src="https://code.jquery.com/jquery-3.3.1.js"
+  			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  			  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/smoothstate@0.7.2/src/jquery.smoothState.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nova+Square" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="container-fluid" id="main">
+<div class="container-fluid main" align="center">
+  <div class="head1">
+    XenonStore
+  </div>
+  <div class="text1">______<br>
+    One stop VIT shop
+  </div>
+</div>
+
+<div class="container-fluid main" align="middle" >
+      <button class="btn" type="button" id="b3" ><strong>SIGNUP AS A BUYER</strong></button><BR>
+        <button class="btn" type="button" id="b4" ><strong>SIGNUP AS A SUPPLIER</strong></button><BR>
+        <button class="btn" type="button" id="b1" ><strong>LOGIN TO BUY</strong></button><BR>
+        <button class="btn" type="button" id="b2" ><strong>LOGIN TO SELL</strong></button><BR>
+</div>
+</div>
+<!-- <div class = "container-fluid auth" align="center">
+  <h1>...Authenticating...</h1>
+</div> -->
+<nav class="fixed-bottom nav1"><br>
+  <ul> &#160; A Xenon Group Initiative</ul>
+</nav>
+
+<script>
+
+$(function() {
+  $("#main").smoothState();
+});
+
+$("#b1").click(function(){
+  window.location.href="user_login.html";
+});
+$("#b2").click(function(){
+  window.location.href="supplier_login.jsp";
+});
+$("#b3").click(function(){
+  window.location.href="signupbuyer.html";
+});
+$("#b4").click(function(){
+  window.location.href="supplier_signup.html";
+});
+
+</script>
+</body>
+</html>

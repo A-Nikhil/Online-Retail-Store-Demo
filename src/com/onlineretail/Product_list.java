@@ -1,5 +1,6 @@
 package com.onlineretail;
 
+import java.sql.Connection; 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,35 +16,37 @@ public class Product_list extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res) {
 		String userid = req.getParameter("userACName");
 		try {
-			PreparedStatement insertion = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db").prepareStatement("INSERT INTO CART (ITEMSID) VALUES (?);");
+			Connection c = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db");
 			String products[] = req.getParameterValues("Products");
-			if (products != null) {
-				for (String prod : products) {
-					insertion.setInt(1, Integer.parseInt(prod));
+			PreparedStatement insertion = null;
+				for (int i = 0; i<products.length; i++) {
+					System.out.println(products[i]);
+					insertion = c.prepareStatement("INSERT INTO CART (ITEMSID) VALUES (?);");
+					insertion.setInt(1, Integer.parseInt(products[i]));
 					insertion.executeUpdate();
+					insertion.close();
 				}
-			}
-			Statement stmt = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db").createStatement();
+			Statement stmt = c.createStatement();
 			HttpSession session = req.getSession();
 	        session.setAttribute("userACName", userid);
-	        setDataForNext(session, stmt);
-	        res.sendRedirect("user.jsp");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-	
-	public void setDataForNext(HttpSession session, Statement stmt) {
-		try {
-			ResultSet rs1  = stmt.executeQuery("SELECT ITEMSID, ITEMS.ITEMNAME, ITEMS.PRICE FROM CART INNER JOIN ITEMS ON CART.ITEMSID = ITEMS.ITEMID;");
+	        
+	        ResultSet rs1  = stmt.executeQuery("SELECT ITEMSID, ITEMS.ITEMNAME, ITEMS.PRICE FROM CART INNER JOIN ITEMS ON CART.ITEMSID = ITEMS.ITEMID;");
 			
-			String params[] = new String[5];
+			String params[][] = new String[3][3];
 			int i=0;
 			while(rs1.next()) {
-				params[i] = rs1.getString(1);
+				params[i][0] = rs1.getString(1);
+				params[i][1] = rs1.getString(2);
+				params[i][2] = Integer.toString(rs1.getInt(3));
+				i++;
 			}
 			System.out.println("fin");
-			session.setAttribute("CartList", params);			
+			session.setAttribute("CartList", params);
+	        
+			stmt.close();
+			c.close();
+			
+	        res.sendRedirect("cart.jsp");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

@@ -11,7 +11,8 @@ public class startADb {
     startADb() {
         initial = "jdbc:sqlite:D:/Coding Languages/sqlite/db/";
     }
-    public void createDatabase(String filename) {
+    @SuppressWarnings("unused")
+	public void createDatabase(String filename) {
         String url = initial + filename + ".db";
         try (Connection conn = DriverManager.getConnection(url)) {
             if(conn!=null) {

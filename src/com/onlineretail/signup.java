@@ -1,11 +1,13 @@
 package com.onlineretail;
 
+import java.sql.Connection; 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.servlet.http.*;
 
+@SuppressWarnings("serial")
 public class signup extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse res) {
         PreparedStatement pstmt = null;
@@ -20,8 +22,8 @@ public class signup extends HttpServlet {
         String sex = req.getParameter("sex");
         Long phno = Long.parseLong(req.getParameter("phno"));
         try {
-            pstmt = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db")
-                    .prepareStatement("INSERT INTO USERS(USERID, PASSWORD, FNAME, MNAME, LNAME, PHNO, SEX, DOB) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+        	Connection c = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db");
+            pstmt = c.prepareStatement("INSERT INTO USERS(USERID, PASSWORD, FNAME, MNAME, LNAME, PHNO, SEX, DOB) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
             pstmt.setString(1, userid);
             pstmt.setString(2, password);
             pstmt.setString(3, fname);
@@ -33,6 +35,9 @@ public class signup extends HttpServlet {
 
             //Execute it
             pstmt.executeUpdate();
+            pstmt.close();
+            c.close();
+            
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

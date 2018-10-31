@@ -1,0 +1,72 @@
+body {
+   background-image: url("../public/images/bg3.jpg");
+   background-repeat: no-repeat;
+   background-position: right top;
+   background-attachment: fixed;
+
+   background-repeat:no-repeat;
+
+   background-size:cover;
+}
+#payment{
+  font-family: 'Raleway', sans-serif !important;
+  font-size:2.0vh !important;
+  text-shadow: 2px 2px 2px #FFFFFF;
+}
+.navbar-brand, .t1{
+    /* position: fixed !important  ; */
+    text-align: center !important;
+    color: black;
+  font-family: 'Raleway', sans-serif !important;
+}
+.username{
+  font-family: 'Raleway', sans-serif !important;
+  font-size:1.5vh !important;
+}
+input[type=checkbox] {
+  margin-top: 5px !important;
+  margin-right: 20px !important;
+  transform: rotate(20deg);
+  transform: scale(2.2);
+}
+
+.t1{
+  font-family: 'Raleway', sans-serif !important;
+  font-size:1.5vh !important;
+  color: white;
+  text-shadow: 2px 2px 2px #000000;
+  margin-top: 2vh !important;
+  margin-bottom: 3vh !important;
+}
+.list-group-item{
+  background-color: rgba(255,255,255,0.8)!important;
+  border-radius: 20px !important;
+  margin-bottom: 10px !important;
+  border-width: 2px !important;
+}
+.dropList{
+  /* background-color: rgba(0,0,0,0.8)!important; */
+  font-family: 'Raleway', sans-serif !important;
+  font-size:1.5vh !important;
+}
+
+.b1, .head1, .cont1{
+  margin-top:4vh !important;
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.head1{
+  color:white;
+  font-size: 2.8vh;
+}
+.cont1{
+  color:white;
+  font-size: 2vh;
+}
+.dropList{
+  color:black !important;
+  font-size: 1.8vh !important;
+}
+.form1{
+  margin-top: 5vh !important;
+}
