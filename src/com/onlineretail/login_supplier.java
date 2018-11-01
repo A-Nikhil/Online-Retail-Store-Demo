@@ -57,10 +57,15 @@ public class login_supplier extends HttpServlet{
                 
                 while(rs1.next()) {
                 	params[i][0] = rs1.getString(1);
+                	if (params[i][0] == null || params[i][0].length()==0)
+                		params[i][0] = "No Product here";
                 	params[i][1] = rs1.getString(2);
                 	params[i][2] = rs1.getString(3);
                 	params[i][3] = Integer.toString(rs1.getInt(4));
                 	i++;
+                }
+                if(i==3) {
+                	params[3][0] = "No Product here";
                 }
                 
                 session.setAttribute("ProductList", params);

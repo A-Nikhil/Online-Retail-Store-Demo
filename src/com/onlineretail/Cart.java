@@ -81,7 +81,8 @@ public class Cart extends HttpServlet{
             PreparedStatement order = c.prepareStatement("INSERT INTO ORDERS (ORDERID, AMOUNT, ORDERDATE, SHIPPINGADD, USERID, PAYMENTID, SHIPPERID) "
             		+ "VALUES (?, ?, ?, ?, ?, ?, ?)");
             LocalDate localDate = LocalDate.now();//For reference
-            LocalDate del = localDate.plusDays(7);
+            int PLUS = rand.nextInt(10) + 1;
+            LocalDate del = localDate.plusDays(PLUS);
     		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
     		String date = del.format(formatter);
 

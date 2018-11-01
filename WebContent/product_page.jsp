@@ -73,7 +73,7 @@
 
                     <div class="col-sm-7">
                      <strong>${ProductList[0][0]}<br>
-                     	with: ${ProductList[0][4]}
+                     	with: ${ProductList[0][4]}<br>
                         comes under: ${ProductList[0][1]}<br>
                         Amount: ${ProductList[0][2]}<br>
                         By: ${ProductList[0][3]}<br></strong>
@@ -88,7 +88,7 @@
 
                     <div class="col-sm-7">
                      <strong>${ProductList[1][0]}<br>
-                     	with: ${ProductList[1][4]}
+                     	with: ${ProductList[1][4]} <br>
                         comes under: ${ProductList[1][1]}<br>
                         Amount: ${ProductList[1][2]}<br>
                         By: ${ProductList[1][3]}<br></strong>
@@ -103,7 +103,7 @@
 
                     <div class="col-sm-7">
                      <strong>${ProductList[2][0]}<br>
-                     	with: ${ProductList[2][4]}
+                     	with: ${ProductList[2][4]} <br>
                         comes under: ${ProductList[2][1]}<br>
                         Amount: ${ProductList[2][2]}<br>
                         By: ${ProductList[2][3]}<br></strong>
@@ -118,7 +118,7 @@
 
                     <div class="col-sm-7">
                      <strong>${ProductList[3][0]}<br>
-                     	with: ${ProductList[3][4]}
+                     	with: ${ProductList[3][4]} <br>
                         comes under: ${ProductList[3][1]}<br>
                         Amount: ${ProductList[3][2]}<br>
                         By: ${ProductList[3][3]}<br></strong>
@@ -133,7 +133,7 @@
 
                     <div class="col-sm-7">
                      <strong>${ProductList[4][0]}<br>
-                     	with: ${ProductList[4][4]}
+                     	with: ${ProductList[4][4]} <br>
                         comes under: ${ProductList[4][1]}<br>
                         Amount: ${ProductList[4][2]}<br>
                         By: ${ProductList[4][3]}<br></strong>
@@ -148,7 +148,7 @@
 
                     <div class="col-sm-7">
                      <strong>${ProductList[5][0]}<br>
-                     	with: ${ProductList[5][4]}
+                     	with: ${ProductList[5][4]} <br>
                         comes under: ${ProductList[5][1]}<br>
                         Amount: ${ProductList[5][2]}<br>
                         By: ${ProductList[5][3]}<br></strong>
@@ -163,7 +163,7 @@
 
                     <div class="col-sm-7">
                      <strong>${ProductList[6][0]}<br>
-                     	with: ${ProductList[6][4]}
+                     	with: ${ProductList[6][4]} <br>
                         comes under: ${ProductList[6][1]}<br>
                         Amount: ${ProductList[6][2]}<br>
                         By: ${ProductList[6][3]}<br></strong>
@@ -179,7 +179,7 @@
 
                     <div class="col-sm-7">
                      <strong>${ProductList[7][0]}<br>
-                     	with: ${ProductList[7][4]}
+                     	with: ${ProductList[7][4]} <br>
                         comes under: ${ProductList[7][1]}<br>
                         Amount: ${ProductList[7][2]}<br>
                         By: ${ProductList[7][3]}<br></strong>
@@ -195,7 +195,7 @@
 
                     <div class="col-sm-7">
                      <strong>${ProductList[8][0]}<br>
-                     	with: ${ProductList[8][4]}
+                     	with: ${ProductList[8][4]} <br>
                         comes under: ${ProductList[8][1]}<br>
                         Amount: ${ProductList[8][2]}<br>
                         By: ${ProductList[8][3]}<br></strong>
@@ -205,6 +205,23 @@
                     </div>
                   </div>
                 </div>
+                
+                <div class="list-group-item" align="left">
+                  <div class="row">
+
+                    <div class="col-sm-7">
+                     <strong>${ProductList[9][0]}<br>
+                     	with: ${ProductList[9][4]} <br>
+                        comes under: ${ProductList[9][1]}<br>
+                        Amount: ${ProductList[9][2]}<br>
+                        By: ${ProductList[9][3]}<br></strong>
+                    </div>
+                    <div class="col-sm-5" align="right">
+                      <input type="checkbox" name="Products" aria-label="Checkbox for following text input" value=${ProductList[9][5]}>
+                    </div>
+                  </div>
+                </div>
+                
               </div>
 
               <button class="btn b1" type="submit" id="b1" ><strong>SHOP</strong></button><br>

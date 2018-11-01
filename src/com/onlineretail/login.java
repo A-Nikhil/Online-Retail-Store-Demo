@@ -78,6 +78,15 @@ public class login extends HttpServlet {
 					params[i][5] = Integer.toString(rs1.getInt(6));
 					i++;
 				}
+				if(i==9) {
+					params[9][0] = "OUT OF STOCK";
+					params[9][1] = "N/A";
+					params[9][2] = "N/A";
+					params[9][3] = "N/A";
+					params[9][4] = "N/A";
+					params[9][5] = "N/A";
+				}
+				
 				System.out.println("fin");
 				session.setAttribute("ProductList", params);
 	    	     
@@ -91,28 +100,4 @@ public class login extends HttpServlet {
 	    	System.out.println(e.getMessage());
 	    }
 	}
-	
-	public void setDataForNext(HttpSession session, Statement stmt) {
-		try {
-			ResultSet rs1  = stmt.executeQuery("SELECT ITEMS.ITEMNAME, ITEMS.CATEGORY, ITEMS.PRICE, SUPPLIER.NAME, ITEMS.DESCRIPTION, ITEMS.ITEMID FROM ITEMS INNER JOIN SUPPLIER ON ITEMS.SUPPLIERID = SUPPLIER.SUPPLIERID;");
-			
-			String params[][] = new String[10][6];
-			int i=0;
-			while(rs1.next()) {
-				params[i][0] = rs1.getString(1);
-				params[i][1] = rs1.getString(2);
-				params[i][2] = Integer.toString(rs1.getInt(3));
-				params[i][3] = rs1.getString(4);
-				params[i][4] = rs1.getString(5);
-				params[i][5] = Integer.toString(rs1.getInt(6));
-				i++;
-			}
-			System.out.println("fin");
-			session.setAttribute("ProductList", params);
-			
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
 }
-
