@@ -59,7 +59,7 @@ public class login_supplier extends HttpServlet{
                 	params[i][0] = rs1.getString(1);
                 	params[i][1] = rs1.getString(2);
                 	params[i][2] = rs1.getString(3);
-                	params[i][3] = Integer.toString(rs1.getInt(1));
+                	params[i][3] = Integer.toString(rs1.getInt(4));
                 	i++;
                 }
                 

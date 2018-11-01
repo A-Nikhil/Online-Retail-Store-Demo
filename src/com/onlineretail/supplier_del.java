@@ -20,16 +20,18 @@ public class supplier_del extends HttpServlet {
 			int suppID = suppid.getInt(1);
 			stmt.close();
 			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT ITEMNAME FROM ITEMS WHERE SUPPLIERID = " + suppID +" AND ITEMNAME = \"" + itemname +"\";");
-			
-			if(rs.getString(1) != null) {
-				System.out.println("NO ITEM");
-				res.sendRedirect("supplier_login.jsp");
-			} else {
-				stmt.execute("DELETE FROM ITEMS WHERE SUPPLIERID = \"" + suppid.getString(1) +"\" AND ITEMNAME = \"" + itemname +"\";");
-				System.out.println("ITEM DELETED");
-				res.sendRedirect("supplier_login.jsp");
-			}
+			System.out.println(suppID + " " + itemname);
+			ResultSet rs = stmt.executeQuery("SELECT ITEMNAME FROM ITEMS WHERE SUPPLIERID = " + suppID + " AND ITEMNAME = \"" + itemname +"\";");
+				if(rs.getString(1) == null) {
+					System.out.println("NO ITEM");
+					res.sendRedirect("supplier_page.jsp");
+				} else {
+					stmt.close();
+					stmt = c.createStatement();
+					stmt.execute("DELETE FROM ITEMS WHERE SUPPLIERID = " + suppID + " AND ITEMNAME = \"" + itemname +"\";");
+					System.out.println("ITEM DELETED");
+					res.sendRedirect("supplier_login.jsp");
+				}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

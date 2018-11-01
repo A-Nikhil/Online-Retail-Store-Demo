@@ -41,7 +41,7 @@ public class supplier_add extends HttpServlet {
             pstmt.executeUpdate();
             pstmt.close();
             c.close();
-            res.sendRedirect("supplier_login.jsp");
+            res.sendRedirect("supplier_page.jsp");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

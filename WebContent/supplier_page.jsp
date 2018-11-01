@@ -114,6 +114,7 @@
 
 <div class="container" align="center">
   <button type="button" align="center" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add item</button>
+  <button type="button" align="center" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Delete Item</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -158,6 +159,36 @@
     </div>
     </form>
   </div>
+  
+  <div class="modal fade" id="myModal2" role="dialog">
+  	<form action="deleteproduct" method="post">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Product</h4>
+        </div>
+        <div class="modal-body">
+          <form action="#" id="form1">
+            <div id="fld1">
+            <div class="input-group ip1" align="middle">
+                <input type="text" id="i1" name="itemname" placeholder="Product Title" class="form-control f1" >
+            </div>
+            </div>
+            <br> <br>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" id="ref2" name="submit" class="btn btn-default" >Refresh Page To Update Table</button>
+        </div>
+      </div>
+
+    </div>
+    </form>
+  </div>
+  
 </div>
 
 
@@ -173,11 +204,6 @@
 // });
 
 
-$(".del").click(function() {
-    alert(this.id); // or alert($(this).attr('id'));
-});
-
-
 
 $(".btn2").click(function(){
   $('#myModal').on('shown.bs.modal', function () {
@@ -187,7 +213,10 @@ $(".btn2").click(function(){
 });
 $(".form1").hide();
 $("#ref").click(function(){
-     window.location.reload();
+    window.location.reload();
+});
+$("#ref2").click(function(){
+    window.location.reload();
 });
 $("#b1").click(function(){
      window.location.href="final.html";
