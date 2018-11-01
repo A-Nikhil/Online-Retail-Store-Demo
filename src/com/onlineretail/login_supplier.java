@@ -1,6 +1,6 @@
 package com.onlineretail;
 
-import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -15,8 +15,10 @@ public class login_supplier extends HttpServlet{
 		password = req.getParameter("password");
 		Statement stmt = null;
 		boolean found = false;
+		Connection c = null;
 		try {
-			stmt = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db").createStatement();
+			c = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db");
+			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT SUPPLIERID, PASSWORD FROM SUPPLIER;");
             while (rs.next()) {
             	String USER = rs.getString(1);
@@ -25,24 +27,51 @@ public class login_supplier extends HttpServlet{
             	if(userid.equals(USER) && password.equals(PASSWORD)) {
                     System.out.println("USER LOGIN SUCCESSFUL");
                     found = true;
-                    stmt.execute("DROP TABLE CURRENTSUP;");
-                    stmt.execute("CREATE TABLE CURRENTSUP (SUPPLIERID TEXT);");
-                    stmt.execute("INSERT INTO CURRENTSUP (SUPPLIERID) VALUES (\"" + userid + "\");");
-                    HttpSession session = req.getSession();
-                    session.setAttribute("supplierACName", userid);
-                    res.sendRedirect("supplier_page.html");
+                    break;
                 }
             }
+            stmt.close();
 			// System.out.println("DONE");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
 		try {
-			if(found)
-				res.sendRedirect("error.html");
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
+			if(found) {
+				stmt = c.createStatement();
+				stmt.execute("DROP TABLE CURRENTSUP;");
+                stmt.close();
+                stmt = c.createStatement();
+                stmt.execute("CREATE TABLE CURRENTSUP (SUPPLIERID TEXT);");
+                stmt.close();
+                stmt = c.createStatement();
+                stmt.execute("INSERT INTO CURRENTSUP (SUPPLIERID) VALUES (\"" + userid + "\");");
+                stmt.close();
+                stmt = c.createStatement();
+                HttpSession session = req.getSession();
+                session.setAttribute("userACName", userid);
+                
+                ResultSet rs1 = stmt.executeQuery("SELECT ITEMNAME, DESCRIPTION, CATEGORY, PRICE FROM ITEMS WHERE SUPPLIERID = "+userid);
+                
+                String params[][] = new String[4][4];
+                int i=0;
+                
+                while(rs1.next()) {
+                	params[i][0] = rs1.getString(1);
+                	params[i][1] = rs1.getString(2);
+                	params[i][2] = rs1.getString(3);
+                	params[i][3] = Integer.toString(rs1.getInt(1));
+                	i++;
+                }
+                
+                session.setAttribute("ProductList", params);
+                
+                res.sendRedirect("supplier_page.jsp");
+                
+			} else {
+				res.sendRedirect("supplier_login.jsp");
+			}
+		} catch (Exception ae) {
+			System.out.println(ae.getMessage());
 		}
 	}
 }

@@ -76,6 +76,25 @@
         <url-pattern>/submitforcart</url-pattern>
     </servlet-mapping>  
     
+    <!-- Add New Item -->
+    <servlet>
+    	<servlet-name>NewItem</servlet-name>
+    	<servlet-class>com.onlineretail.supplier_add</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewItem</servlet-name>
+        <url-pattern>/addproduct</url-pattern>
+    </servlet-mapping> 
+    
+    <!-- Delete Item -->
+    <servlet>
+    	<servlet-name>DelItem</servlet-name>
+    	<servlet-class>com.onlineretail.supplier_del</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DelItem</servlet-name>
+        <url-pattern>/deleteproduct</url-pattern>
+    </servlet-mapping> 
     
    <welcome-file-list>
    	<welcome-file>landing.html</welcome-file>

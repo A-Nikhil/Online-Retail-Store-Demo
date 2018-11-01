@@ -50,7 +50,7 @@ function nav(){
   // setTimeout(function() {}, delay);
   // $(".auth").show();
   setTimeout(function() {
-    window.location.href="supplier_page.html";
+    window.location.href="supplier_page.jsp";
 }, delay);
 
 }

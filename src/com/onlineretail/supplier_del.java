@@ -1,5 +1,6 @@
 package com.onlineretail;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -12,10 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 public class supplier_del extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res) {
 		try {
+			Connection c = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db");
 			String itemname = req.getParameter("itemname");
-			Statement stmt = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db").createStatement();
+			Statement stmt = c.createStatement();
 			ResultSet suppid = stmt.executeQuery("SELECT SUPPLIERID FROM CURRENTSUP;");
-			ResultSet rs = stmt.executeQuery("SELECT ITEMNAME FROM ITEMS WHERE SUPPLIERID = \"" + suppid.getString(1) +"\" AND ITEMNAME = \"" + itemname +"\";");
+			int suppID = suppid.getInt(1);
+			stmt.close();
+			stmt = c.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT ITEMNAME FROM ITEMS WHERE SUPPLIERID = " + suppID +" AND ITEMNAME = \"" + itemname +"\";");
 			
 			if(rs.getString(1) != null) {
 				System.out.println("NO ITEM");
