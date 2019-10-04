@@ -22,7 +22,9 @@ public class signup extends HttpServlet {
         Long phno = Long.parseLong(req.getParameter("phno"));
         String location = req.getParameter("location");
         try {
-        	Connection c = DriverManager.getConnection("jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db");
+            // It is better to initialize a db url before
+            String dbURL = "jdbc:sqlite:D:/Coding Languages/sqlite/db/XenonStore.db";
+        	Connection c = DriverManager.getConnection(dbURL);
             pstmt = c.prepareStatement("INSERT INTO USERS(USERID, PASSWORD, FNAME, MNAME, LNAME, PHNO, SEX, ADDRESS) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
             pstmt.setString(1, userid);
             pstmt.setString(2, password);
